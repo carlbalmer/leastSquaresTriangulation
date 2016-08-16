@@ -15,6 +15,18 @@ public class Datapoint {
     final float XPosition;
     final float YPosition;
 
+    float distanceAP1;
+    float distanceAP2;
+    float distanceAP3;
+    float distanceAP4;
+    float distanceAP5;
+
+    float weightAP1;
+    float weightAP2;
+    float weightAP3;
+    float weightAP4;
+    float weightAP5;
+
     public Datapoint(int room, int rssiAP1, int rssiAP2, int rssiAP3, int rssiAP4, int rssiAP5, int XAxys, int YAxys, int ZAxys, float XPosition, float YPosition) {
         this.room = room;
         this.rssiAP1 = rssiAP1;
