@@ -1,4 +1,5 @@
 /**
+ * Data object represents one measurement.
  * Created by carl on 15.08.16.
  */
 public class Datapoint {

@@ -24,25 +24,25 @@ public class FileReaderTest {
         assertEquals(4, datapoint2.room);
         assertEquals(2, datapoint3.room);
 
-        assertEquals(-74, datapoint1.rssiAP1);
-        assertEquals(-38, datapoint2.rssiAP1);
-        assertEquals(-51, datapoint3.rssiAP1);
+        assertEquals(-41, datapoint1.rssiAP1);
+        assertEquals(-80, datapoint2.rssiAP1);
+        assertEquals(-59, datapoint3.rssiAP1);
 
-        assertEquals(-62, datapoint1.rssiAP2);
-        assertEquals(-58, datapoint2.rssiAP2);
-        assertEquals(-73, datapoint3.rssiAP2);
+        assertEquals(-64, datapoint1.rssiAP2);
+        assertEquals(-50, datapoint2.rssiAP2);
+        assertEquals(-36, datapoint3.rssiAP2);
 
-        assertEquals(-80, datapoint1.rssiAP3);
-        assertEquals(-49, datapoint2.rssiAP3);
-        assertEquals(-47, datapoint3.rssiAP3);
+        assertEquals(-74, datapoint1.rssiAP3);
+        assertEquals(-38, datapoint2.rssiAP3);
+        assertEquals(-51, datapoint3.rssiAP3);
 
-        assertEquals(-41, datapoint1.rssiAP4);
-        assertEquals(-80, datapoint2.rssiAP4);
-        assertEquals(-59, datapoint3.rssiAP4);
+        assertEquals(-62, datapoint1.rssiAP4);
+        assertEquals(-58, datapoint2.rssiAP4);
+        assertEquals(-73, datapoint3.rssiAP4);
 
-        assertEquals(-64, datapoint1.rssiAP5);
-        assertEquals(-50, datapoint2.rssiAP5);
-        assertEquals(-36, datapoint3.rssiAP5);
+        assertEquals(-80, datapoint1.rssiAP5);
+        assertEquals(-49, datapoint2.rssiAP5);
+        assertEquals(-47, datapoint3.rssiAP5);
 
         assertEquals(23, datapoint1.XAxys);
         assertEquals(21, datapoint2.XAxys);

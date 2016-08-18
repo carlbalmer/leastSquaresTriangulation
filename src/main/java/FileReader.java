@@ -9,7 +9,7 @@ import java.util.LinkedList;
 public class FileReader {
 
     public static LinkedList<Datapoint> readDatapoints(String filename) throws IOException {
-        LinkedList<Datapoint> datapoints = new LinkedList<Datapoint>();
+        LinkedList<Datapoint> datapoints = new LinkedList<>();
         BufferedReader bufferedReader = new BufferedReader(new java.io.FileReader(filename));
         String line;
         while ((line = bufferedReader.readLine()) != null) {
@@ -21,6 +21,6 @@ public class FileReader {
 
     private static Datapoint parseLine(String line) {
         String[] splittedLine = line.split("[ :]");
-        return new Datapoint(Integer.parseInt(splittedLine[0]), Integer.parseInt(splittedLine[2]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[6]), Integer.parseInt(splittedLine[8]), Integer.parseInt(splittedLine[10]), Integer.parseInt(splittedLine[12]), Integer.parseInt(splittedLine[14]), Integer.parseInt(splittedLine[16]), Float.parseFloat(splittedLine[17]), Float.parseFloat(splittedLine[18]));
+        return new Datapoint(Integer.parseInt(splittedLine[0]), Integer.parseInt(splittedLine[8]), Integer.parseInt(splittedLine[10]), Integer.parseInt(splittedLine[2]), Integer.parseInt(splittedLine[4]), Integer.parseInt(splittedLine[6]), Integer.parseInt(splittedLine[12]), Integer.parseInt(splittedLine[14]), Integer.parseInt(splittedLine[16]), Float.parseFloat(splittedLine[17]), Float.parseFloat(splittedLine[18]));
     }
 }
