@@ -1,25 +1,17 @@
-import org.apache.commons.math3.fitting.leastsquares.*;
-import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
-import org.apache.commons.math3.linear.Array2DRowRealMatrix;
-import org.apache.commons.math3.linear.ArrayRealVector;
-import org.apache.commons.math3.linear.RealMatrix;
-import org.apache.commons.math3.linear.RealVector;
-import org.apache.commons.math3.util.Pair;
-
-import java.util.Arrays;
-
-/**
- * Created by carl on 08.08.16.
- */
 public class Triangulation {
+
+    /*final Vector2D[] observedPoints;
+
+    public Triangulation(int AP1x, int AP1y, int AP2x, int AP2y, int AP3x, int AP3y, int AP4x, int AP4y, int AP5x, int AP5y,) {
+        this.observedPoints = new Vector2D[]{
+                new Vector2D(AP1x, AP1y),
+                new Vector2D(AP2x, AP2y),
+                new Vector2D(AP3x, AP3y),
+                new Vector2D(AP4x, AP4y),
+                new Vector2D(AP5x, AP5y)};
+    }
+
     final double radius = 70.0;
-    final Vector2D[] observedPoints = new Vector2D[]{
-            new Vector2D(30.0, 68.0),
-            new Vector2D(50.0, -6.0),
-            new Vector2D(110.0, -20.0),
-            new Vector2D(35.0, 15.0),
-            new Vector2D(45.0, 97.0)
-    };
 
     // the model function components are the distances to current estimated center,
     // they should be as close as possible to the specified radius
@@ -46,26 +38,23 @@ public class Triangulation {
         }
     };
 
-    private void foo() {
-        // the target is to have all points at the specified radius from the center
-        double[] prescribedDistances = new double[observedPoints.length];
+    // the target is to have all points at the specified radius from the center
+    double[] prescribedDistances = new double[observedPoints.length];
+    Arrays.fill(prescribedDistances,radius);
 
-        Arrays.fill(prescribedDistances, radius);
-
-        // least squares problem to solve : modeled radius should be close to target radius
-        LeastSquaresProblem problem = new LeastSquaresBuilder().
-                start(new double[]{100.0, 50.0}).
-                model(distancesToCurrentCenter).
-                target(prescribedDistances).
-                lazyEvaluation(false).
-                maxEvaluations(1000).
-                maxIterations(1000).
-                build();
-        LeastSquaresOptimizer.Optimum optimum = new LevenbergMarquardtOptimizer().optimize(problem);
-        Vector2D fittedCenter = new Vector2D(optimum.getPoint().getEntry(0), optimum.getPoint().getEntry(1));
-        System.out.println("fitted center: " + fittedCenter.getX() + " " + fittedCenter.getY());
-        System.out.println("RMS: " + optimum.getRMS());
-        System.out.println("evaluations: " + optimum.getEvaluations());
-        System.out.println("iterations: " + optimum.getIterations());
-    }
+    // least squares problem to solve : modeled radius should be close to target radius
+    LeastSquaresProblem problem = new LeastSquaresBuilder().
+            start(new double[]{100.0, 50.0}).
+            model(distancesToCurrentCenter).
+            target(prescribedDistances).
+            lazyEvaluation(false).
+            maxEvaluations(1000).
+            maxIterations(1000).
+            build();
+    LeastSquaresOptimizer.Optimum optimum = new LevenbergMarquardtOptimizer().optimize(problem);
+    Vector2D fittedCenter = new Vector2D(optimum.getPoint().getEntry(0), optimum.getPoint().getEntry(1));
+    System.out.println("fitted center: "+fittedCenter.getX()+" "+fittedCenter.getY());
+    System.out.println("RMS: "+optimum.getRMS());
+    System.out.println("evaluations: "+optimum.getEvaluations());
+    System.out.println("iterations: "+optimum.getIterations());*/
 }
