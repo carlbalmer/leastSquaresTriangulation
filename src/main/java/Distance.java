@@ -12,38 +12,40 @@ public class Distance {
     }
 
     private static Datapoint assignDistances(Datapoint datapoint) {
-        datapoint.distanceAP1 = distanceAP1(datapoint.rssiAP1);
-        datapoint.distanceAP2 = distanceAP2(datapoint.rssiAP2);
-        datapoint.distanceAP3 = distanceAP3(datapoint.rssiAP3);
-        datapoint.distanceAP4 = distanceAP4(datapoint.rssiAP4);
-        datapoint.distanceAP5 = distanceAP5(datapoint.rssiAP5);
+        double[] distances = new double[]{
+                distanceAP1(datapoint.rssiAP1),
+                distanceAP2(datapoint.rssiAP2),
+                distanceAP3(datapoint.rssiAP3),
+                distanceAP4(datapoint.rssiAP4),
+                distanceAP5(datapoint.rssiAP5)};
+        datapoint.distances = distances;
         return datapoint;
     }
 
-    private static float distanceAP1(int rssi) {
+    private static double distanceAP1(int rssi) {
         if (-40 < rssi) return 2;
         if (-50 < rssi) return 4;
-        else return (float) (2.148f * Math.exp(-0.02873f * rssi));
+        else return (float) (2.148 * Math.exp(-0.02873 * rssi));
     }
 
-    private static float distanceAP2(int rssi) {
+    private static double distanceAP2(int rssi) {
         if (-35 < rssi) return 1;
         if (-40 < rssi) return 3;
-        else return (float) (1.743f * Math.exp(-0.03294f * rssi));
+        else return (float) (1.743 * Math.exp(-0.03294 * rssi));
     }
 
-    private static float distanceAP3(int rssi) {
+    private static double distanceAP3(int rssi) {
         if (-35 < rssi) return 1;
-        else return (float) (0.7888f * Math.exp(-0.0401f * rssi));
+        else return (float) (0.7888 * Math.exp(-0.0401 * rssi));
     }
 
-    private static float distanceAP4(int rssi) {
+    private static double distanceAP4(int rssi) {
         if (-35 < rssi) return 1;
-        else return (float) (0.801f * Math.exp(-0.0388f * rssi));
+        else return (float) (0.801 * Math.exp(-0.0388 * rssi));
     }
 
-    private static float distanceAP5(int rssi) {
+    private static double distanceAP5(int rssi) {
         if (-40 < rssi) return 2;
-        else return (float) (1.545f * Math.exp(-0.03051f * rssi));
+        else return (float) (1.545 * Math.exp(-0.03051 * rssi));
     }
 }

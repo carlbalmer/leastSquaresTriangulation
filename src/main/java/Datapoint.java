@@ -1,3 +1,5 @@
+import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
+
 /**
  * Data object represents one measurement.
  * Created by carl on 15.08.16.
@@ -13,22 +15,14 @@ public class Datapoint {
     final int XAxys;
     final int YAxys;
     final int ZAxys;
-    final float XPosition;
-    final float YPosition;
+    final Vector2D position;
+    double[] distances;
+    double[] weights;
+    double rsm;
+    double error;
+    private Vector2D assumedPosition;
 
-    float distanceAP1;
-    float distanceAP2;
-    float distanceAP3;
-    float distanceAP4;
-    float distanceAP5;
-
-    float weightAP1;
-    float weightAP2;
-    float weightAP3;
-    float weightAP4;
-    float weightAP5;
-
-    public Datapoint(int room, int rssiAP1, int rssiAP2, int rssiAP3, int rssiAP4, int rssiAP5, int XAxys, int YAxys, int ZAxys, float XPosition, float YPosition) {
+    public Datapoint(int room, int rssiAP1, int rssiAP2, int rssiAP3, int rssiAP4, int rssiAP5, int XAxys, int YAxys, int ZAxys, double XPosition, double YPosition) {
         this.room = room;
         this.rssiAP1 = rssiAP1;
         this.rssiAP2 = rssiAP2;
@@ -38,7 +32,44 @@ public class Datapoint {
         this.XAxys = XAxys;
         this.YAxys = YAxys;
         this.ZAxys = ZAxys;
-        this.XPosition = XPosition;
-        this.YPosition = YPosition;
+        this.position = new Vector2D(XPosition, YPosition);
+    }
+
+    @Override
+    public String toString() {
+        return position.getX() +
+                " " + position.getY() +
+                " " + assumedPosition.getX() +
+                " " + assumedPosition.getY() +
+                " " + error +
+                " " + rsm +
+                " " + room +
+                " " + distances[0] +
+                " " + distances[1] +
+                " " + distances[2] +
+                " " + distances[3] +
+                " " + distances[4] +
+                " " + weights[0] +
+                " " + weights[1] +
+                " " + weights[2] +
+                " " + weights[3] +
+                " " + weights[4] +
+                " " + rssiAP1 +
+                " " + rssiAP2 +
+                " " + rssiAP3 +
+                " " + rssiAP4 +
+                " " + rssiAP5 +
+                " " + XAxys +
+                " " + YAxys +
+                " " + ZAxys;
+    }
+
+    public Vector2D getAssumedPosition() {
+        return assumedPosition;
+    }
+
+    public void setAssumedPosition(Vector2D assumedPosition) {
+        this.assumedPosition = assumedPosition;
+        error = assumedPosition.distance(position);
     }
 }

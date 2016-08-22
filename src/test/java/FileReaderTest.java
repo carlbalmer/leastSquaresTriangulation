@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.LinkedList;
@@ -12,18 +13,33 @@ import static org.junit.Assert.assertTrue;
 
 public class FileReaderTest {
 
-    @Test
-    public void readDatapoints() throws Exception {
-        LinkedList<Datapoint> datapoints = FileReader.readDatapoints("src/test/resources/testInputFile.txt");
-        Datapoint datapoint1 = datapoints.remove();
-        Datapoint datapoint2 = datapoints.remove();
-        Datapoint datapoint3 = datapoints.remove();
-        assertTrue(datapoints.isEmpty());
+    LinkedList<Datapoint> datapoints;
+    Datapoint datapoint1;
+    Datapoint datapoint2;
+    Datapoint datapoint3;
 
+    @Before
+    public void setUp() throws Exception {
+        datapoints = FileReader.readDatapoints("src/test/resources/testInputFile.txt");
+        datapoint1 = datapoints.remove();
+        datapoint2 = datapoints.remove();
+        datapoint3 = datapoints.remove();
+    }
+
+    @Test
+    public void checkLinkedListIsEmpty() throws Exception {
+        assertTrue(datapoints.isEmpty());
+    }
+
+    @Test
+    public void checkRoom() throws Exception {
         assertEquals(1, datapoint1.room);
         assertEquals(4, datapoint2.room);
         assertEquals(2, datapoint3.room);
+    }
 
+    @Test
+    public void checkRSSI() throws Exception {
         assertEquals(-41, datapoint1.rssiAP1);
         assertEquals(-80, datapoint2.rssiAP1);
         assertEquals(-59, datapoint3.rssiAP1);
@@ -43,7 +59,10 @@ public class FileReaderTest {
         assertEquals(-80, datapoint1.rssiAP5);
         assertEquals(-49, datapoint2.rssiAP5);
         assertEquals(-47, datapoint3.rssiAP5);
+    }
 
+    @Test
+    public void checkMagnetometer() throws Exception {
         assertEquals(23, datapoint1.XAxys);
         assertEquals(21, datapoint2.XAxys);
         assertEquals(13, datapoint3.XAxys);
@@ -55,14 +74,17 @@ public class FileReaderTest {
         assertEquals(-41, datapoint1.ZAxys);
         assertEquals(-5, datapoint2.ZAxys);
         assertEquals(-24, datapoint3.ZAxys);
+    }
 
-        assertEquals(1.562f, datapoint1.XPosition, 0.0f);
-        assertEquals(15.776f, datapoint2.XPosition, 0.0f);
-        assertEquals(7.023f, datapoint3.XPosition, 0.0f);
+    @Test
+    public void checkPosition() throws Exception {
+        assertEquals(1.562f, datapoint1.position.getX(), 0.0f);
+        assertEquals(15.776f, datapoint2.position.getX(), 0.0f);
+        assertEquals(7.023f, datapoint3.position.getX(), 0.0f);
 
-        assertEquals(2.26f, datapoint1.YPosition, 0.0f);
-        assertEquals(11.563f, datapoint2.YPosition, 0.0f);
-        assertEquals(14.752f, datapoint3.YPosition, 0.0f);
+        assertEquals(2.26f, datapoint1.position.getY(), 0.0f);
+        assertEquals(11.563f, datapoint2.position.getY(), 0.0f);
+        assertEquals(14.752f, datapoint3.position.getY(), 0.0f);
     }
 
 }

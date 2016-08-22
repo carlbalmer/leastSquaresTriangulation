@@ -19,7 +19,7 @@ public class inverselyProportionalWeightTest {
 
     @Before
     public void setUp() throws Exception {
-        Weight weight = new inverselyProportionalWeight();
+        Weight weight = new InverselyProportionalWeight();
         datapoints = new LinkedList<>();
         datapoints.add(new Datapoint(3, -97, -51, -42, -53, -60, 25, -24, -12, 10.573f, 11.167f));
         datapoints.add(new Datapoint(4, -85, -58, -47, -52, -41, 23, -25, -7, 14.605f, 11.195f));
@@ -42,21 +42,21 @@ public class inverselyProportionalWeightTest {
 
     @Test
     public void checkWeightsNotNull() throws Exception {
-        assertNotEquals(0.0f, datapoint1.weightAP1, 0.0f);
+        assertNotEquals(0.0, datapoint1.weights[0], 0.0);
     }
 
     @Test
     public void weightsDatapoint1() throws Exception {
-        assertEquals(0.0452202197f, datapoint1.weightAP1, 0.0001f);
-        assertEquals(0.1685685768f, datapoint1.weightAP2, 0.0001f);
-        assertEquals(0.3709003668f, datapoint1.weightAP3, 0.0001f);
-        assertEquals(0.2517367987f, datapoint1.weightAP4, 0.0001f);
-        assertEquals(0.1635403785f, datapoint1.weightAP5, 0.0001f);
+        assertEquals(0.0452202197f, datapoint1.weights[0], 0.0001f);
+        assertEquals(0.1685685768f, datapoint1.weights[1], 0.0001f);
+        assertEquals(0.3709003668f, datapoint1.weights[2], 0.0001f);
+        assertEquals(0.2517367987f, datapoint1.weights[3], 0.0001f);
+        assertEquals(0.1635403785f, datapoint1.weights[4], 0.0001f);
     }
 
     @Test
     public void weightSumIs1() throws Exception {
-        assertEquals(1, datapoint1.weightAP1 + datapoint1.weightAP2 + datapoint1.weightAP3 + datapoint1.weightAP4 + datapoint1.weightAP5, 0.0f);
+        assertEquals(1, datapoint1.weights[0] + datapoint1.weights[1] + datapoint1.weights[2] + datapoint1.weights[3] + datapoint1.weights[4], 0.00000000001f);
     }
 
 }

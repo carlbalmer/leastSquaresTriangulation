@@ -40,63 +40,63 @@ public class DistanceTest {
 
     @Test
     public void checkDistanceNotNull() throws Exception {
-        assertNotEquals(0.0f, datapoint1.distanceAP1, 0.0f);
+        assertNotEquals(0.0, datapoint1.distances[0], 0.0);
     }
 
     @Test
     public void distanceAP1() throws Exception {
-        assertEquals(34.8602f, datapoint1.distanceAP1, 0.0001f);
-        assertEquals(24.6947f, datapoint2.distanceAP1, 0.0001f);
+        assertEquals(34.8602, datapoint1.distances[0], 0.0001);
+        assertEquals(24.6947, datapoint2.distances[0], 0.0001);
     }
 
     @Test
     public void distanceAP2() throws Exception {
-        assertEquals(9.3516f, datapoint1.distanceAP2, 0.0001f);
-        assertEquals(11.7768f, datapoint2.distanceAP2, 0.0001f);
+        assertEquals(9.3516, datapoint1.distances[1], 0.0001);
+        assertEquals(11.7768, datapoint2.distances[1], 0.0001);
     }
 
     @Test
     public void distanceAP3() throws Exception {
-        assertEquals(4.25016f, datapoint1.distanceAP3, 0.0001f);
-        assertEquals(5.19376f, datapoint2.distanceAP3, 0.0001f);
+        assertEquals(4.25016, datapoint1.distances[2], 0.0001);
+        assertEquals(5.19376, datapoint2.distances[2], 0.0001);
     }
 
     @Test
     public void distanceAP4() throws Exception {
-        assertEquals(6.26204f, datapoint1.distanceAP4, 0.0001f);
-        assertEquals(6.02372f, datapoint2.distanceAP4, 0.0001f);
+        assertEquals(6.26204, datapoint1.distances[3], 0.0001);
+        assertEquals(6.02372, datapoint2.distances[3], 0.0001);
     }
 
     @Test
     public void distanceAP5() throws Exception {
-        assertEquals(9.63714f, datapoint1.distanceAP5, 0.0001f);
-        assertEquals(5.39749f, datapoint2.distanceAP5, 0.0001f);
+        assertEquals(9.63714, datapoint1.distances[4], 0.0001);
+        assertEquals(5.39749, datapoint2.distances[4], 0.0001);
     }
 
     @Test
     public void distanceAP1threshold() throws Exception {
-        assertEquals(2.0f, datapoint3.distanceAP1, 0.0f);
-        assertEquals(4.0f, datapoint4.distanceAP1, 0.0f);
+        assertEquals(2.0, datapoint3.distances[0], 0.0);
+        assertEquals(4.0, datapoint4.distances[0], 0.0);
     }
 
     @Test
     public void distanceAP2threshold() throws Exception {
-        assertEquals(1.0f, datapoint3.distanceAP2, 0.0f);
-        assertEquals(3.0f, datapoint4.distanceAP2, 0.0f);
+        assertEquals(1.0, datapoint3.distances[1], 0.0);
+        assertEquals(3.0, datapoint4.distances[1], 0.0);
     }
 
     @Test
     public void distanceAP3threshold() throws Exception {
-        assertEquals(1f, datapoint3.distanceAP3, 0.0f);
+        assertEquals(1, datapoint3.distances[2], 0.0);
     }
 
     @Test
     public void distanceAP4threshold() throws Exception {
-        assertEquals(1f, datapoint3.distanceAP4, 0.0f);
+        assertEquals(1, datapoint3.distances[3], 0.0);
     }
 
     @Test
     public void distanceAP5threshold() throws Exception {
-        assertEquals(2f, datapoint3.distanceAP5, 0.0f);
+        assertEquals(2, datapoint3.distances[4], 0.0);
     }
 }
